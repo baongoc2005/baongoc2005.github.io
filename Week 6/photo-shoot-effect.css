@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,900");
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #fcfcfc;
+  background-color: #355664;
+  width: 960px;
+  margin: 0 auto;
+}
+
+/* === Header === */
+h1, h2, h3 {
+  font-family: forte, Arial, sans-serif;
+}
+
+h1 {
+  font-size: 50px;
+  padding: 10px 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+h3 {
+  text-align: right;
+  font-size: 30px;
+  font-weight: normal;
+  margin: 0 0 10px;
+}
+
+h2 {
+  font-size: 40px;
+  letter-spacing: 15px;
+  text-align: center;
+  text-transform: uppercase;
+  border-bottom: 3px solid #416371;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+/* === NAVIGATION MENU === */
+nav {
+  background: #355664;
+  padding: 5px 0;
+  text-align: left;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 25px;
+}
+
+nav ul li a {
+  font-family: "Lato", sans-serif;
+  font-size: 24px;
+  text-decoration: underline;
+  color: #fff;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+/* màu từng tab */
+nav ul li:first-child a {
+  color: #7CB3E9;
+  text-transform: lowercase;
+}
+
+nav ul li a[title="Sweet Tabs"],
+nav ul li a[title="sweettabs"] {
+  color: #8EC45B;
+  text-transform: none;
+}
+
+nav ul li a[title="NAVIGATION MENU"],
+nav ul li a[title="navmenu"] {
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+nav ul li a:hover {
+  opacity: 0.8;
+  text-decoration: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+/* === ARTICLE BOX === */
+article {
+  background-color: #213E4A;
+  margin: 0 0 10px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3) inset;
+}
+
+/* chia layout 2 cột: text | ảnh */
+.article-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 25px;
+}
+
+/* Text bên trái */
+.article-content .text {
+  flex: 1;
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+.article-content .text .lead {
+  color: #94c258;
+}
+
+/* Hình bên phải */
+.article-content figure {
+  margin: 0;
+  border: 3px solid #142830;
+  border-radius: 10px;
+  background-color: #0e2230;
+  padding: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .45);
+}
+
+.article-content figure img {
+  display: block;
+  width: 400px;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Footer */
+footer {
+  border-top: 3px solid #142830;
+  padding-top: 10px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 18px;
+  margin-top: 15px;
+}
+.article-box {
+  background-color: #213E4A; /* 🎨 xanh đậm */
+  padding: 20px;             
+  border-radius: 10px;       
+  margin: 10px 0;            
+}
