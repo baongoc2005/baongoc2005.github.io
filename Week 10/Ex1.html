@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Register New Account</title>
+<script language="javascript">
+function formValid() {
+    f = document.frmRegister;
+    var phone_pattern = /^(\(0\d{1,3}\)\d{7})|0\d{9,10}$/;
+    var email_pattern = /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+    var password_pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-={}[\]:;'"<>,.?/]).{6,20}$/;
+    var name_pattern = /^[A-Z][a-zA-Z\s]+$/;
+    if (f.txtUsername.value == "") {
+        alert("Username can't be empty");
+        f.txtUsername.focus();
+        return false;
+    }
+   
+    if (!password_pattern.test(f.txtPassword1.value)) {
+        alert("Password must be 6–20 characters long and include at least one uppercase letter, one lowercase letter, and one special character");
+        f.txtPassword1.focus();
+        return false;
+    }
+
+    if (f.txtPassword1.value != f.txtPassword2.value) {
+        alert("Password doesn't match");
+        f.txtPassword2.focus();
+        return false;
+    }
+
+    if (phone_pattern.test(f.txtPhone.value) == false) {
+        alert("Invalid phone number");
+        f.txtPhone.focus();
+        return false;
+    }
+
+    if (email_pattern.test(f.txtEmail.value) == false) {
+        alert("Invalid email address");
+        f.txtEmail.focus();
+        return false;
+    }
+
+    if (f.chkMusic.checked == false && f.chkReading.checked == false) {
+        alert("You must select at least one favourite");
+        f.chkMusic.focus();
+        return false;
+    }
+
+    if (f.filePicture.value == "") {
+        alert("You must select your picture");
+        f.filePicture.focus();
+        return false;
+    }
+
+    if (f.txtDescription.value == "") {
+        alert("You must enter description");
+        f.txtDescription.focus();
+        return false;
+    }
+    alert("All register information are correct.");
+    return true;
+    if (f.txtStreet.value == "") {
+    alert("Please enter your street or house number.");
+    f.txtStreet.focus();
+    return false;
+}
+
+if (f.txtWard.value == "") {
+    alert("Please enter your ward or commune.");
+    f.txtWard.focus();
+    return false;
+}
+if (!name_pattern.test(f.txtWard.value)) {
+    alert("Ward/Commune name must start with a capital letter.");
+    f.txtWard.focus();
+    return false;
+}
+
+if (f.txtProvince.value == "") {
+    alert("Please enter your province or city.");
+    f.txtProvince.focus();
+    return false;
+}
+if (!name_pattern.test(f.txtProvince.value)) {
+    alert("Province/City name must start with a capital letter.");
+    f.txtProvince.focus();
+    return false;
+}
+}
+</script>
+</head>
+
+<body>
+<form name="frmRegister" onsubmit="return formValid()">
+<table align="center" border="0" width="450">
+<tr>
+    <td colspan="2" align="center" bgcolor="#0077A8">
+        <font color="white"><b>REGISTER NEW ACCOUNT</b></font>
+    </td>
+</tr>
+
+<tr>
+    <td>Username</td>
+    <td><input type="text" name="txtUsername"></td>
+</tr>
+
+<tr>
+    <td>Password</td>
+    <td><input type="password" name="txtPassword1"></td>
+</tr>
+
+<tr>
+    <td>Confirm password</td>
+    <td><input type="password" name="txtPassword2"></td>
+</tr>
+
+<tr>
+    <td>Gender</td>
+    <td>
+        <input type="radio" name="gender" value="Male"> Male
+        <input type="radio" name="gender" value="Female"> Female
+    </td>
+</tr>
+
+<tr>
+    <td>Phone</td>
+    <td><input type="text" name="txtPhone"></td>
+</tr>
+
+<tr>
+    <td>Email</td>
+    <td><input type="text" name="txtEmail"></td>
+</tr>
+<tr>
+    <td>Street / House No.</td>
+    <td><input type="text" name="txtStreet" size="40" placeholder="e.g., 123 Nguyen Trai Street"></td>
+</tr>
+
+<tr>
+    <td>Ward / Commune</td>
+    <td><input type="text" name="txtWard" size="30" placeholder="e.g., Trung Hoa"></td>
+</tr>
+
+<tr>
+    <td>Province / City</td>
+    <td><input type="text" name="txtProvince" size="30" placeholder="e.g., Ha Noi"></td>
+</tr>
+
+
+<tr>
+    <td>Favourite</td>
+    <td>
+        <input type="checkbox" name="chkMusic"> Music
+        <input type="checkbox" name="chkReading"> Reading
+    </td>
+</tr>
+
+<tr>
+    <td>Picture</td>
+    <td><input type="file" name="filePicture"></td>
+</tr>
+
+<tr>
+    <td>Description</td>
+    <td><textarea name="txtDescription" cols="30" rows="4"></textarea></td>
+</tr>
+
+<tr>
+    <td>Education level</td>
+    <td>
+        <select name="eduLevel">
+            <option>Aptech</option>
+            <option>FPT</option>
+            <option>VNU-IS</option>
+            <option>RMIT</option>
+        </select>
+    </td>
+</tr>
+
+<tr>
+    <td>Language</td>
+    <td>
+        <select name="language" multiple size="4">
+            <option>Vietnamese</option>
+            <option>English</option>
+            <option>French</option>
+            <option>Japanese</option>
+        </select>
+    </td>
+</tr>
+
+<tr>
+    <td colspan="2" align="center">
+        <input type="submit" value="Register">
+        <input type="reset" value="Reset">
+    </td>
+</tr>
+</table>
+</form>
+</body>
+</html>
