@@ -3,34 +3,11 @@
 <head>
 <meta charset="utf-8">
 <title>Mini calculator</title>
-<script language="javascript">
-function calculate() {
-    var a = document.frmCal.txta;
-    var b = document.frmCal.txtb;
-    var o = document.frmCal.slto;
-    var r = document.frmCal.txtr;
-
-    var numberFormat = /^[+-]?\d+(\.\d+)?$/;
-
-    if (numberFormat.test(a.value) == false) {
-        alert("a must be a number!");
-        a.focus();
-    } else if (numberFormat.test(b.value) == false) {
-        alert("b must be a number!");
-        b.focus();
-    } else if ((o.value == "/" || o.value == "%") && parseInt(b.value) == 0) {
-        alert("b can't be 0!");
-        r.value = "";
-        b.focus();
-    } else {
-        r.value = eval(a.value + o.value + b.value);
-    }
-}
-</script>
+<script src="script.js"></script>
+<link rel="stylesheet" href="style1.css">
 </head>
-
 <body>
-<form name="frmCal">
+<form name="calcform">
 <table border="0" align="center">
 <tr>
     <td colspan="2" align="center">
@@ -63,7 +40,7 @@ function calculate() {
 
 <tr>
     <td align="right">Result: </td>
-    <td><input name="txtr" readonly /></td>
+       <td><span id="lblResult"></span></td>
 </tr>
 
 <tr>

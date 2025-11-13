@@ -1,0 +1,24 @@
+body {
+    font-family: Arial;
+}
+
+table {
+    margin-top: 50px;
+    background: #5bc4ce;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+h2 {
+    color: #333;
+}
+
+input, select {
+    padding: 5px 10px;
+    font-size: 16px;
+}
+
+#lblResult {
+    font-weight: bold;
+    color: blue;
+}
