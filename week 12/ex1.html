@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Exam</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 15px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            color: #4CAF50;
+        }
+
+        .form-container {
+            width: 60%;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+
+        input[type="text"], 
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+        }
+
+    </style>
+</head>
+<body>
+    <nav id="mainNav">
+        <a href="#">Trang chủ</a> -
+        <a href="#">Sách &copy;</a> -
+        <a href="#">Tác giả &trade;</a> -
+        <a href="#">Liên hệ</a>
+    </nav>
+    <button onclick="toggleMenu()">Ẩn/Hiện Menu</button>
+
+    <h2>Bảng linh kiện máy tính &copy;</h2>
+    <table id="componentTable">
+        <tr>
+        <th>Tên linh kiện</th>
+            <th>Giá (VND)</th>
+            <th>Đánh giá &star;</th>
+        </tr>
+        <tr>
+            <td>CPU Intel&trade; Core i5</td>
+            <td>5000000</td>
+            <td>4.5/5</td>
+        </tr>
+        <tr>
+            <td>RAM DDR4 8G8</td>
+            <td>800000</td>
+            <td>4.5/5</td>
+        </tr>
+        <tr>
+            <td>Ổ cứng SSD 256GB</td>
+            <td>1200000</td>
+            <td>4.0/5</td>
+        </tr>
+    </table>
+    <button onclick="changeColor()">Đổi màu chữ</button>
+    <button onclick="sortTable()">Sắp xếp theo giá</button>
+
+<div class="form-container">
+    <h3>Biểu mẫu liên hệ</h3>
+    <form onsubmit="return validateForm()">
+        <label>Họ và tên:</label>
+        <input type="text" id="name">
+
+        <label>Email:</label>
+        <input type="text" id="email">
+
+        <label>Tin nhắn:</label>
+        <textarea id="message"></textarea>
+
+        <input type="submit" value="Gửi">
+    </form>
+</div>
+
+<script>
+    let isRed = false;
+
+    function changeColor() {
+        const table = document.getElementById("componentTable");
+        if (isRed) {
+            table.style.color = "black";
+        } else {
+            table.style.color = "red";
+        }
+        isRed = !isRed;
+    }
+function sortTable() {
+        const table = document.getElementById("componentTable");
+        let rows, switching, i, x, y, shouldSwitch;
+        switching = true;
+while (switching) {
+            switching = false;
+            rows = table.rows;
+
+            for (i = 1; i < (rows.length - 1); i++) {
+                shouldSwitch = false;
+                x = rows[i].getElementsByTagName("TD")[1];
+                y = rows[i + 1].getElementsByTagName("TD")[1];
+
+                if (Number(x.innerHTML) > Number(y.innerHTML)) {
+                    shouldSwitch = true;
+                    break;
+                }
+            }
+            if (shouldSwitch) {
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+            }
+        }
+    }
+
+    function validateForm() {
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
+
+        if (name === "" || email === "" || message === "") {
+            alert("Vui lòng điền đầy đủ thông tin trong biểu mẫu.");
+            return false;
+        }
+        alert("Biểu mẫu đã được gửi thành công!");
+        return true;
+    }
+
+    function toggleMenu() {
+        const nav = document.getElementById("mainNav");
+        if (nav.style.display === "none") {
+            nav.style.display = "block";
+        } else {
+            nav.style.display = "none";
+        }
+    }
+    
+
+</script>
+</body>
+</html>
